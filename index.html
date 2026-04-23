@@ -10,17 +10,14 @@
 <style>
 
 /* =====================
-   COLORS
+   COLORS + BASE
 ===================== */
 :root {
     --yellow: #FFD54F;
     --black: #111;
-    --gray: #f3f3f3;
+    --bg: #fffdf5;
 }
 
-/* =====================
-   GLOBAL
-===================== */
 * {
     margin: 0;
     padding: 0;
@@ -30,13 +27,17 @@
 
 body {
     color: var(--black);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,213,79,0.25), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,213,79,0.2), transparent 40%),
+        var(--bg);
 }
 
 /* =====================
    NAV
 ===================== */
 nav {
-    padding: 12px 20px;
+    padding: 12px 18px;
     font-weight: 700;
 }
 
@@ -44,9 +45,11 @@ nav {
    HERO
 ===================== */
 .hero {
-    background: var(--yellow);
-    padding: 70px 20px 40px;
+    background: linear-gradient(135deg, #FFD54F, #FFF176);
+    padding: 60px 20px 40px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero h1 {
@@ -57,10 +60,24 @@ nav {
     margin: 10px 0;
 }
 
-/* BUTTON */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+    filter: blur(60px);
+}
+
+/* =====================
+   BUTTON
+===================== */
 .btn {
     display: inline-block;
-    padding: 9px 20px;
+    padding: 10px 20px;
     border-radius: 25px;
     background: black;
     color: white;
@@ -74,11 +91,15 @@ nav {
 }
 
 /* =====================
-   SECTION
+   SECTIONS
 ===================== */
 section {
     padding: 35px 15px;
     text-align: center;
+}
+
+section:nth-child(even) {
+    background: rgba(255, 213, 79, 0.08);
 }
 
 .container {
@@ -87,14 +108,15 @@ section {
 }
 
 /* =====================
-   MAIN DRINK IMAGE
+   MAIN IMAGE
 ===================== */
 .main-img img {
-    width: 80%;
+    width: 75%;
     max-width: 420px;
     border-radius: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
     transition: 0.4s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .main-img img:hover {
@@ -102,7 +124,7 @@ section {
 }
 
 /* =====================
-   GRID IMAGES
+   GRID
 ===================== */
 .grid {
     display: grid;
@@ -114,6 +136,7 @@ section {
     width: 100%;
     border-radius: 12px;
     transition: 0.4s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .grid img:hover {
@@ -131,38 +154,37 @@ section {
 }
 
 .card {
-    background: var(--gray);
+    width: 170px;
+    background: #f5f5f5;
     padding: 15px;
     border-radius: 12px;
-    width: 170px;
     transition: 0.3s;
 }
 
 .card:hover {
     background: var(--yellow);
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255,213,79,0.4);
 }
 
 .card h3 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .card p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin: 5px 0;
 }
 
-/* INSTAGRAM LINK */
+/* INSTAGRAM */
 .insta {
-    display: block;
-    font-size: 0.75rem;
-    margin-top: 5px;
+    font-size: 0.7rem;
     color: #555;
     text-decoration: none;
 }
 
 /* =====================
-   PRICE IMAGE
+   PRICE
 ===================== */
 .price img {
     width: 80%;
@@ -174,11 +196,11 @@ section {
    CONTACT
 ===================== */
 .contact p {
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 /* =====================
-   STICKY BAR
+   CALL DROPDOWN
 ===================== */
 .bar {
     position: fixed;
@@ -187,12 +209,13 @@ section {
     display: flex;
 }
 
-.bar a {
+.bar a, .call-btn {
     flex: 1;
     padding: 12px;
     text-align: center;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    cursor: pointer;
 }
 
 .order {
@@ -200,16 +223,41 @@ section {
     color: white;
 }
 
-.call {
+.call-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.call-btn {
     background: var(--yellow);
     color: black;
+    display: block;
+}
+
+#call-toggle:checked + label + .options {
+    display: flex;
+}
+
+.options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 45px;
+    width: 100%;
+    background: black;
+}
+
+.options a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid #333;
 }
 
 /* =====================
    MOBILE
 ===================== */
 @media(max-width:768px){
-
     .grid {
         grid-template-columns: 1fr;
     }
@@ -217,7 +265,6 @@ section {
     .hero h1 {
         font-size: 1.8rem;
     }
-
 }
 
 </style>
@@ -232,13 +279,13 @@ section {
 <div class="hero">
     <h1>Boobo Tea</h1>
     <p>Fresh bubble tea & aesthetic drinks 🧋</p>
-    <a href="https://www.instagram.com/boobo__tea/" class="btn">Order Now</a>
+    <a class="btn" href="https://www.instagram.com/boobo__tea/">Order Now</a>
 </div>
 
 <!-- MAIN IMAGE -->
 <section class="main-img">
     <div class="container">
-        <h2>Our Signature Drink</h2>
+        <h2>Signature Drink</h2>
         <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/drinks.jpg?v=1776941400">
     </div>
 </section>
@@ -267,45 +314,45 @@ section {
         <div class="menu">
 
             <div class="card">
-                <h3>🧋 Classic Milk Tea</h3>
-                <p>Creamy & smooth</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🧋 Milk Tea</h3>
+                <p>Classic & creamy</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>🍓 Strawberry Tea</h3>
-                <p>Fresh & fruity</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🍓 Strawberry</h3>
+                <p>Sweet & fresh</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>🥭 Mango Burst</h3>
-                <p>Sweet tropical vibe</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🥭 Mango</h3>
+                <p>Tropical vibe</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>🍫 Chocolate Boba</h3>
-                <p>Rich & indulgent</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🍫 Chocolate</h3>
+                <p>Rich taste</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>🍵 Matcha Latte</h3>
-                <p>Earthy & premium</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🍵 Matcha</h3>
+                <p>Premium green tea</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>🍯 Honey Milk Tea</h3>
-                <p>Sweet & smooth</p>
-                <a href="tel:055000000" class="btn">Order</a>
-                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+                <h3>🍯 Honey Tea</h3>
+                <p>Soft & sweet</p>
+                <a class="btn" href="tel:055000000">Order</a>
+                <a class="insta" href="https://www.instagram.com/boobo__tea/">Instagram</a>
             </div>
 
         </div>
@@ -321,7 +368,7 @@ section {
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
+<section>
     <h2>Contact</h2>
     <p>📞 055xxxxxx</p>
 </section>
@@ -333,8 +380,19 @@ section {
 
 <!-- STICKY BAR -->
 <div class="bar">
-    <a href="https://www.instagram.com/boobo__tea/" class="order">Order</a>
-    <a href="tel:055000000" class="call">Call</a>
+
+    <a class="order" href="https://www.instagram.com/boobo__tea/">Order</a>
+
+    <div class="call-wrapper">
+        <input type="checkbox" id="call-toggle" hidden>
+        <label class="call-btn" for="call-toggle">Call</label>
+
+        <div class="options">
+            <a href="tel:055000000">📞 Phone</a>
+            <a href="https://wa.me/055000000">💬 WhatsApp</a>
+        </div>
+    </div>
+
 </div>
 
 </body>
