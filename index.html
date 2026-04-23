@@ -36,10 +36,8 @@ body {
    NAV
 ===================== */
 nav {
-    display: flex;
-    justify-content: space-between;
     padding: 12px 20px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* =====================
@@ -47,7 +45,7 @@ nav {
 ===================== */
 .hero {
     background: var(--yellow);
-    padding: 70px 20px 50px;
+    padding: 70px 20px 40px;
     text-align: center;
 }
 
@@ -57,17 +55,17 @@ nav {
 
 .hero p {
     margin: 10px 0;
-    font-size: 0.95rem;
 }
 
+/* BUTTON */
 .btn {
     display: inline-block;
-    padding: 10px 22px;
+    padding: 9px 20px;
     border-radius: 25px;
     background: black;
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: 0.3s;
 }
 
@@ -89,7 +87,22 @@ section {
 }
 
 /* =====================
-   IMAGE GRID
+   MAIN DRINK IMAGE
+===================== */
+.main-img img {
+    width: 80%;
+    max-width: 420px;
+    border-radius: 15px;
+    margin-top: 15px;
+    transition: 0.4s;
+}
+
+.main-img img:hover {
+    transform: scale(1.05);
+}
+
+/* =====================
+   GRID IMAGES
 ===================== */
 .grid {
     display: grid;
@@ -103,9 +116,8 @@ section {
     transition: 0.4s;
 }
 
-/* hover animation */
 .grid img:hover {
-    transform: scale(1.07);
+    transform: scale(1.06);
 }
 
 /* =====================
@@ -113,22 +125,40 @@ section {
 ===================== */
 .menu {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .card {
     background: var(--gray);
     padding: 15px;
     border-radius: 12px;
-    width: 160px;
+    width: 170px;
     transition: 0.3s;
 }
 
 .card:hover {
     background: var(--yellow);
     transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 0.95rem;
+}
+
+.card p {
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+/* INSTAGRAM LINK */
+.insta {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    color: #555;
+    text-decoration: none;
 }
 
 /* =====================
@@ -196,33 +226,35 @@ section {
 <body>
 
 <!-- NAV -->
-<nav>
-    <div>Boobo Tea</div>
-</nav>
+<nav>Boobo Tea</nav>
 
 <!-- HERO -->
 <div class="hero">
     <h1>Boobo Tea</h1>
     <p>Fresh bubble tea & aesthetic drinks 🧋</p>
-
     <a href="https://www.instagram.com/boobo__tea/" class="btn">Order Now</a>
 </div>
 
-<!-- IMAGE GRID -->
+<!-- MAIN IMAGE -->
+<section class="main-img">
+    <div class="container">
+        <h2>Our Signature Drink</h2>
+        <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/drinks.jpg?v=1776941400">
+    </div>
+</section>
+
+<!-- GRID -->
 <section>
     <div class="container">
-        <h2>Our Drinks</h2>
+        <h2>Gallery</h2>
 
         <div class="grid">
-
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_23_605007664_17865249594539713_2941981634396524078_n.jpg?v=1776942376">
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_21_605771779_17865701763539713_5515280777942363022_n.jpg?v=1776942376">
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_10_632060254_17871819798539713_1103058248486842034_n.jpg?v=1776942375">
-
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_28_587996447_17862449694539713_8642349878151147118_n.jpg?v=1776942375">
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_62_531285410_17848058556539713_1973715432764123025_n.jpg?v=1776942375">
             <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_49_548165542_17853168546539713_561485115254571115_n.jpg?v=1776942375">
-
         </div>
     </div>
 </section>
@@ -235,21 +267,45 @@ section {
         <div class="menu">
 
             <div class="card">
-                <h3>Milk Tea</h3>
-                <p>$3.50</p>
+                <h3>🧋 Classic Milk Tea</h3>
+                <p>Creamy & smooth</p>
                 <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>Fruit Tea</h3>
-                <p>$3.00</p>
+                <h3>🍓 Strawberry Tea</h3>
+                <p>Fresh & fruity</p>
                 <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
             </div>
 
             <div class="card">
-                <h3>Taro</h3>
-                <p>$4.20</p>
+                <h3>🥭 Mango Burst</h3>
+                <p>Sweet tropical vibe</p>
                 <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+            </div>
+
+            <div class="card">
+                <h3>🍫 Chocolate Boba</h3>
+                <p>Rich & indulgent</p>
+                <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+            </div>
+
+            <div class="card">
+                <h3>🍵 Matcha Latte</h3>
+                <p>Earthy & premium</p>
+                <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
+            </div>
+
+            <div class="card">
+                <h3>🍯 Honey Milk Tea</h3>
+                <p>Sweet & smooth</p>
+                <a href="tel:055000000" class="btn">Order</a>
+                <a href="https://www.instagram.com/boobo__tea/" class="insta">Instagram</a>
             </div>
 
         </div>
