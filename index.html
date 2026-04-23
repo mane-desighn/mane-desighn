@@ -5,24 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boobo Tea</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* =====================
-   VARIABLES + DARK MODE
+   COLORS
 ===================== */
 :root {
-    --bg: #fffdf5;
-    --text: #222;
-    --card: rgba(255,255,255,0.6);
-    --accent: #FFD54F;
-}
-
-#dark-toggle:checked ~ * {
-    --bg: #121212;
-    --text: #eee;
-    --card: rgba(255,255,255,0.05);
+    --yellow: #FFD54F;
+    --black: #111;
+    --gray: #f5f5f5;
 }
 
 /* =====================
@@ -36,172 +29,180 @@
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-}
-
-section {
-    padding: 70px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
+    background: white;
+    color: var(--black);
 }
 
 /* =====================
-   NAVBAR
+   NAV
 ===================== */
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
-    backdrop-filter: blur(10px);
+    padding: 12px 25px;
+    font-weight: 500;
 }
 
 .logo {
-    font-weight: 600;
-}
-
-.toggle-label {
-    cursor: pointer;
+    font-weight: 700;
 }
 
 /* =====================
-   HERO
+   HERO (SMALLER)
 ===================== */
 .hero {
-    height: 100vh;
-    background: linear-gradient(135deg,#FFD54F,#FFF176);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background: var(--yellow);
+    padding: 80px 20px 60px;
     text-align: center;
-
-    animation: fadeIn 1s ease;
+    animation: fadeUp 0.8s ease;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
 }
 
+.hero p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+/* BUTTON */
 .btn {
-    padding: 12px 30px;
-    border-radius: 30px;
-    background: black;
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background: var(--black);
     color: white;
     text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
 .btn:hover {
-    transform: scale(1.08);
+    transform: translateY(-3px);
 }
 
 /* =====================
-   PHONE BUTTON
+   SECTION
 ===================== */
-.call-btn {
-    background: #25D366;
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
 }
 
 /* =====================
-   GLASS
+   IMAGE (SMALLER = BETTER QUALITY)
 ===================== */
-.glass {
-    background: var(--card);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 30px;
+.img-box img {
+    width: 70%;
+    max-width: 400px;
+    border-radius: 15px;
+    margin-top: 15px;
+    transition: 0.4s;
 }
 
-/* =====================
-   IMAGE
-===================== */
-.showcase img {
-    width: 100%;
-    border-radius: 20px;
-    margin-top: 20px;
+.img-box img:hover {
+    transform: scale(1.05);
 }
 
 /* =====================
    MENU
 ===================== */
-.menu-grid {
+.menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
 }
 
-.menu-card {
-    width: 230px;
-    padding: 25px;
-    border-radius: 20px;
-    background: var(--card);
-    backdrop-filter: blur(10px);
-    transition: 0.4s;
+.card {
+    width: 180px;
+    padding: 18px;
+    border-radius: 15px;
+    background: var(--gray);
+    transition: 0.3s;
 }
 
-.menu-card:hover {
-    transform: translateY(-10px) scale(1.05);
+.card:hover {
+    transform: translateY(-6px);
+    background: var(--yellow);
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.9rem;
+}
+
+/* =====================
+   PRICE IMAGE
+===================== */
+.price img {
+    width: 75%;
+    max-width: 500px;
+    border-radius: 15px;
 }
 
 /* =====================
    CONTACT
 ===================== */
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
+.contact p {
+    margin-top: 10px;
+    font-weight: 500;
 }
 
 /* =====================
-   STICKY MOBILE BAR
+   STICKY BAR
 ===================== */
-.sticky-bar {
+.bar {
     position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
 }
 
-.sticky-bar a {
+.bar a {
     flex: 1;
+    padding: 12px;
     text-align: center;
-    padding: 15px;
-    color: white;
     text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
 }
 
-.order-bar {
+.order {
     background: black;
 }
 
-.call-bar {
-    background: #25D366;
-}
-
-/* =====================
-   FOOTER
-===================== */
-footer {
-    text-align: center;
-    padding: 20px;
+.call {
+    background: var(--yellow);
+    color: black;
 }
 
 /* =====================
    ANIMATION
 ===================== */
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(20px);}
-    to {opacity:1; transform: translateY(0);}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeUp 0.6s ease;
 }
 
 </style>
@@ -209,37 +210,30 @@ footer {
 
 <body>
 
-<input type="checkbox" id="dark-toggle" hidden>
-
 <!-- NAV -->
 <nav>
     <div class="logo">Boobo Tea</div>
-    <label for="dark-toggle" class="toggle-label">🌙</label>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
     <h1>Boobo Tea</h1>
     <p>Fresh bubble tea & aesthetic drinks 🧋</p>
 
-    <!-- ORDER BUTTON -->
     <a href="https://www.instagram.com/boobo__tea/" class="btn">Order Now</a>
-
-    <!-- CALL BUTTON -->
-    <a href="tel:055000000" class="btn call-btn">Call: 055xxxxxx</a>
-</section>
+</div>
 
 <!-- DRINK IMAGE -->
-<section class="showcase">
-    <div class="container">
+<section>
+    <div class="container img-box">
         <h2>Our Drinks</h2>
         <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/drinks.jpg?v=1776941400">
     </div>
 </section>
 
 <!-- FEATURE IMAGE -->
-<section class="showcase">
-    <div class="container">
+<section>
+    <div class="container img-box">
         <h2>Signature Style</h2>
         <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/521654536_17843346438539713_5625889258806642977_n_1.jpg?v=1776941621">
     </div>
@@ -250,32 +244,30 @@ footer {
     <div class="container">
         <h2>Menu</h2>
 
-        <div class="menu-grid">
-
-            <div class="menu-card">
+        <div class="menu">
+            <div class="card">
                 <h3>Milk Tea</h3>
                 <p>$3.50</p>
                 <a href="tel:055000000" class="btn">Order</a>
             </div>
 
-            <div class="menu-card">
+            <div class="card">
                 <h3>Fruit Tea</h3>
                 <p>$3.00</p>
                 <a href="tel:055000000" class="btn">Order</a>
             </div>
 
-            <div class="menu-card">
-                <h3>Taro Special</h3>
+            <div class="card">
+                <h3>Taro</h3>
                 <p>$4.20</p>
                 <a href="tel:055000000" class="btn">Order</a>
             </div>
-
         </div>
     </div>
 </section>
 
 <!-- PRICE LIST -->
-<section>
+<section class="price">
     <div class="container">
         <h2>Full Menu</h2>
         <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/pricelist.jpg?v=1776941404">
@@ -283,22 +275,20 @@ footer {
 </section>
 
 <!-- CONTACT -->
-<section>
-    <div class="container glass">
-        <h2>Contact Us</h2>
-        <p>📞 055xxxxxx</p>
-    </div>
+<section class="contact">
+    <h2>Contact</h2>
+    <p>📞 055xxxxxx</p>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<section>
     <p>© 2026 Boobo Tea</p>
-</footer>
+</section>
 
-<!-- STICKY MOBILE BAR -->
-<div class="sticky-bar">
-    <a href="https://www.instagram.com/boobo__tea/" class="order-bar">Order Now</a>
-    <a href="tel:055000000" class="call-bar">Call</a>
+<!-- STICKY BAR -->
+<div class="bar">
+    <a href="https://www.instagram.com/boobo__tea/" class="order">Order</a>
+    <a href="tel:055000000" class="call">Call</a>
 </div>
 
 </body>
