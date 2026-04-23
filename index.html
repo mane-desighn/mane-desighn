@@ -15,7 +15,7 @@
 :root {
     --yellow: #FFD54F;
     --black: #111;
-    --gray: #f5f5f5;
+    --gray: #f3f3f3;
 }
 
 /* =====================
@@ -29,7 +29,6 @@
 }
 
 body {
-    background: white;
     color: var(--black);
 }
 
@@ -39,22 +38,17 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 12px 25px;
-    font-weight: 500;
-}
-
-.logo {
-    font-weight: 700;
+    padding: 12px 20px;
+    font-weight: 600;
 }
 
 /* =====================
-   HERO (SMALLER)
+   HERO
 ===================== */
 .hero {
     background: var(--yellow);
-    padding: 80px 20px 60px;
+    padding: 70px 20px 50px;
     text-align: center;
-    animation: fadeUp 0.8s ease;
 }
 
 .hero h1 {
@@ -66,12 +60,11 @@ nav {
     font-size: 0.95rem;
 }
 
-/* BUTTON */
 .btn {
     display: inline-block;
     padding: 10px 22px;
     border-radius: 25px;
-    background: var(--black);
+    background: black;
     color: white;
     text-decoration: none;
     font-size: 0.9rem;
@@ -86,28 +79,33 @@ nav {
    SECTION
 ===================== */
 section {
-    padding: 40px 20px;
+    padding: 35px 15px;
     text-align: center;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
 }
 
 /* =====================
-   IMAGE (SMALLER = BETTER QUALITY)
+   IMAGE GRID
 ===================== */
-.img-box img {
-    width: 70%;
-    max-width: 400px;
-    border-radius: 15px;
-    margin-top: 15px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid img {
+    width: 100%;
+    border-radius: 12px;
     transition: 0.4s;
 }
 
-.img-box img:hover {
-    transform: scale(1.05);
+/* hover animation */
+.grid img:hover {
+    transform: scale(1.07);
 }
 
 /* =====================
@@ -115,48 +113,38 @@ section {
 ===================== */
 .menu {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card {
-    width: 180px;
-    padding: 18px;
-    border-radius: 15px;
     background: var(--gray);
+    padding: 15px;
+    border-radius: 12px;
+    width: 160px;
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-6px);
     background: var(--yellow);
-}
-
-.card h3 {
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.card p {
-    font-size: 0.9rem;
+    transform: translateY(-5px);
 }
 
 /* =====================
    PRICE IMAGE
 ===================== */
 .price img {
-    width: 75%;
+    width: 80%;
     max-width: 500px;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 /* =====================
    CONTACT
 ===================== */
 .contact p {
-    margin-top: 10px;
-    font-weight: 500;
+    margin-top: 8px;
 }
 
 /* =====================
@@ -174,12 +162,12 @@ section {
     padding: 12px;
     text-align: center;
     text-decoration: none;
-    color: white;
     font-size: 0.9rem;
 }
 
 .order {
     background: black;
+    color: white;
 }
 
 .call {
@@ -188,21 +176,18 @@ section {
 }
 
 /* =====================
-   ANIMATION
+   MOBILE
 ===================== */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+@media(max-width:768px){
 
-section {
-    animation: fadeUp 0.6s ease;
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
 }
 
 </style>
@@ -212,7 +197,7 @@ section {
 
 <!-- NAV -->
 <nav>
-    <div class="logo">Boobo Tea</div>
+    <div>Boobo Tea</div>
 </nav>
 
 <!-- HERO -->
@@ -223,19 +208,22 @@ section {
     <a href="https://www.instagram.com/boobo__tea/" class="btn">Order Now</a>
 </div>
 
-<!-- DRINK IMAGE -->
+<!-- IMAGE GRID -->
 <section>
-    <div class="container img-box">
+    <div class="container">
         <h2>Our Drinks</h2>
-        <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/drinks.jpg?v=1776941400">
-    </div>
-</section>
 
-<!-- FEATURE IMAGE -->
-<section>
-    <div class="container img-box">
-        <h2>Signature Style</h2>
-        <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/521654536_17843346438539713_5625889258806642977_n_1.jpg?v=1776941621">
+        <div class="grid">
+
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_23_605007664_17865249594539713_2941981634396524078_n.jpg?v=1776942376">
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_21_605771779_17865701763539713_5515280777942363022_n.jpg?v=1776942376">
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_10_632060254_17871819798539713_1103058248486842034_n.jpg?v=1776942375">
+
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_28_587996447_17862449694539713_8642349878151147118_n.jpg?v=1776942375">
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_62_531285410_17848058556539713_1973715432764123025_n.jpg?v=1776942375">
+            <img src="https://cdn.shopify.com/s/files/1/0726/0740/0014/files/imageye___-_imgi_49_548165542_17853168546539713_561485115254571115_n.jpg?v=1776942375">
+
+        </div>
     </div>
 </section>
 
@@ -245,6 +233,7 @@ section {
         <h2>Menu</h2>
 
         <div class="menu">
+
             <div class="card">
                 <h3>Milk Tea</h3>
                 <p>$3.50</p>
@@ -262,11 +251,12 @@ section {
                 <p>$4.20</p>
                 <a href="tel:055000000" class="btn">Order</a>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- PRICE LIST -->
+<!-- PRICE -->
 <section class="price">
     <div class="container">
         <h2>Full Menu</h2>
